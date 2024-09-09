@@ -1,23 +1,34 @@
 /* Estilos generales */
 body {
-    font-family: 'Poppins', sans-serif; /* Tipografía moderna y elegante */
+    font-family: 'Roboto', sans-serif; /* Tipografía moderna */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f4f4f9; /* Fondo claro */
-    color: #333; /* Texto oscuro */
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios de tema */
 }
 
+/* Estilos para el encabezado */
 header {
-    background-color: #1f1f1f; /* Gris oscuro */
+    background-color: #003366; /* Azul oscuro */
     color: #fff;
-    padding: 1rem 2rem;
-    position: fixed;
+    padding: 1rem 2rem; /* Espaciado uniforme */
+    position: fixed; /* Fijo en la parte superior */
     width: 100%;
     top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+/* Estilos para la navegación */
+nav {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: center;
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenido */
+    width: 100%; /* Ocupa todo el ancho del encabezado */
 }
 
 nav ul {
@@ -25,7 +36,8 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around; /* Distribuye los elementos del menú a lo largo del contenedor */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
 }
 
 nav ul li {
@@ -35,52 +47,39 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: color 0.3s;
+    font-weight: bold;
+    font-size: 1.2rem; /* Tamaño de fuente ligeramente mayor */
+    padding: 0.5rem 1rem; /* Espaciado interno para mejorar la apariencia */
+    transition: color 0.3s, transform 0.2s;
+    position: relative; /* Para el efecto de subrayado */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #d43f3a; /* Rojo brillante */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 nav ul li a:hover {
-    color: #ff5722; /* Naranja vibrante */
+    color: #d43f3a; /* Rojo brillante para el hover */
+    transform: scale(1.1); /* Efecto de escala al pasar el ratón */
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Botones */
-button, .cta-button {
-    background-color: #ff5722; /* Naranja vibrante */
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    font-weight: bold;
-}
-
-button:hover, .cta-button:hover {
-    background-color: #e64a19; /* Naranja más oscuro */
-    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
-}
-
-/* Enlaces */
-a {
-    color: #2196f3; /* Azul brillante */
-    text-decoration: none;
-    transition: color 0.3s, text-shadow 0.3s;
-}
-
-a:hover {
-    color: #1976d2; /* Azul más oscuro */
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+/* Estilos para el contenido principal */
+main {
+    margin-top: 80px; /* Espacio para el encabezado fijo */
 }
 
 /* Estilos para la página de inicio */
@@ -88,57 +87,56 @@ a:hover {
     background: url('../assets/img/hero-bg.jpg') no-repeat center center/cover;
     color: #fff;
     text-align: center;
-    padding: 10rem 2rem; /* Mayor espacio para una mejor apariencia */
+    padding: 6rem 1rem; /* Mayor espacio para una mejor apariencia */
+    margin-top: 80px; /* Ajuste para el espacio debajo del encabezado fijo */
     position: relative;
-    z-index: 1;
     overflow: hidden;
 }
 
-.hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Superposición oscura para mejorar la legibilidad */
-    z-index: -1;
-}
-
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0;
-    font-weight: 700;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Mejora la legibilidad sobre el fondo */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Mejora la legibilidad sobre el fondo */
+    animation: fadeIn 2s ease-out;
 }
 
 .hero p {
-    font-size: 1.75rem;
-    margin-top: 1rem;
+    font-size: 1.5rem;
+    animation: fadeIn 2s ease-out 0.5s;
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #ff5722; /* Naranja vibrante */
+    background-color: #d43f3a; /* Rojo brillante */
     color: #fff;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     text-decoration: none;
     border-radius: 0.5rem;
     font-weight: bold;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     transition: background-color 0.3s, transform 0.2s;
 }
 
 .cta-button:hover {
-    background-color: #e64a19; /* Naranja más oscuro */
+    background-color: #b03228; /* Rojo más oscuro */
     transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .features {
     text-align: center;
-    padding: 4rem 2rem;
-    background-color: #fff; /* Fondo blanco para destacar las características */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    padding: 4rem 1rem; /* Mayor espacio para una mejor presentación */
 }
 
 .features .feature {
@@ -151,83 +149,235 @@ a:hover {
 
 .features .feature:hover {
     transform: scale(1.05); /* Efecto de escala al pasar el ratón */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
 }
 
 .features img {
     width: 100%;
     height: auto;
-    border-radius: 0.5rem; /* Bordes redondeados para las imágenes */
+    margin-top: 1rem;
+    object-fit: cover; /* Mantiene la proporción de las imágenes */
     transition: transform 0.3s;
 }
 
 .features img:hover {
-    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    transform: scale(1.1); /* Efecto de escala en imágenes al pasar el ratón */
 }
 
 .testimonials {
-    background-color: #f9f9f9; /* Fondo gris claro */
-    padding: 4rem 2rem;
+    background-color: #f0f0f0; /* Gris claro */
+    padding: 4rem 1rem; /* Mayor espacio para una mejor presentación */
     text-align: center;
 }
 
 .testimonials blockquote {
-    border-left: 5px solid #ff5722; /* Naranja vibrante */
-    padding-left: 1.5rem;
-    margin: 1.5rem auto;
-    max-width: 700px;
+    border-left: 5px solid #d43f3a; /* Rojo brillante */
+    padding-left: 1rem;
+    margin: 0 auto;
+    max-width: 700px; /* Mayor ancho para mejorar la legibilidad */
     font-style: italic;
     color: #333;
     position: relative;
 }
 
 .testimonials blockquote::before {
-    content: "\201C"; /* Comillas iniciales */
-    font-size: 4rem;
-    color: #ff5722; /* Naranja vibrante */
+    content: '“';
+    font-size: 3rem;
     position: absolute;
-    top: -1rem;
-    left: -1rem;
+    left: -0.5rem;
+    top: -1.5rem;
+    color: #d43f3a; /* Rojo brillante */
+    opacity: 0.2;
 }
 
-.testimonials blockquote footer {
-    font-weight: bold;
-    margin-top: 0.5rem;
-    color: #555;
-}
-
+/* Efecto de desplazamiento suave en la sección de contacto */
 .contact-cta {
     text-align: center;
-    padding: 4rem 2rem;
-    background-color: #2196f3; /* Azul brillante */
+    padding: 4rem 1rem; /* Mayor espacio para una mejor presentación */
+    background-color: #003366; /* Azul oscuro */
     color: #fff;
     border-radius: 0.5rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
 }
 
 .contact-cta h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    animation: slideIn 1s ease-out;
 }
 
 .contact-cta p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    animation: slideIn 1s ease-out 0.5s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estilos para la página de servicios */
+section {
+    margin-bottom: 2rem;
+}
+
+section img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    object-fit: cover; /* Mantiene la proporción de las imágenes */
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #d43f3a; /* Rojo brillante */
+}
+
+/* Estilos para la página de sobre nosotros */
+.about-section {
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-direction: column;
+}
+
+.about-content img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.timeline {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.timeline-event {
+    margin-bottom: 1rem;
+}
+
+.team-profiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.profile {
+    text-align: center;
+    max-width: 200px;
+}
+
+.profile img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.mission-visuals {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.mission-visuals img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-left: 5px solid #d43f3a; /* Rojo brillante */
+    font-style: italic;
+}
+
+/* Estilos para la página de contacto */
+form {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 700px; /* Mayor ancho para mejor usabilidad */
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+textarea {
+    resize: vertical; /* Permite ajustar el tamaño vertical del textarea */
+}
+
+button {
+    background-color: #d43f3a; /* Rojo brillante */
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #b03228; /* Rojo más oscuro */
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+/* Estilos para la página de blog */
+.blog-article {
+    margin-bottom: 3rem; /* Mayor espacio entre artículos */
+}
+
+.blog-article h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #d43f3a; /* Rojo brillante */
+}
+
+.blog-article p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.blog-article a {
+    color: #007bff; /* Azul */
 }
 
 /* Estilos para el modo oscuro */
 body[data-theme='dark'] {
-    background-color: #121212;
-    color: #e0e0e0;
+    background-color: #000;
+    color: #fff;
 }
 
 header, footer {
-    background-color: #1f1f1f;
+    background-color: #1f1f1f; /* Color más oscuro para el modo oscuro */
 }
 
 nav ul li a {
-    color: #e0e0e0;
+    color: #e0e0e0; /* Color claro para el modo oscuro */
 }
 
 footer {
-    background-color: #333;
+    background-color: #111;
 }
 
 .hero {
@@ -235,12 +385,12 @@ footer {
 }
 
 .testimonials blockquote {
-    border-left: 5px solid #ff5722;
-    color: #e0e0e0;
+    border-left: 5px solid #d43f3a; /* Rojo brillante */
+    color: #ccc;
 }
 
 /* Ajustes adicionales para el modo oscuro */
 section {
-    background-color: #1e1e1e;
-    color: #e0e0e0;
+    background-color: #222;
+    color: #ccc;
 }
