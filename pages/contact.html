@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contacta a Kuu para consultas y solicitudes de impresión 3D.">
+    <meta name="description" content="Contáctanos para más información sobre nuestros servicios de impresión 3D.">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <title>Contacto - Kuu</title>
 </head>
@@ -21,18 +21,24 @@
     </header>
     <main>
         <h1>Contacto</h1>
-        <form id="contact-form">
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-
-            <button type="submit">Enviar</button>
-        </form>
+        <section>
+            <h2>Envíanos un Mensaje</h2>
+            <form action="send-message.php" method="post">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <section>
+            <h2>Detalles de Contacto</h2>
+            <p>Dirección: Calle Ficticia 123, Ciudad, País</p>
+            <p>Teléfono: +123 456 7890</p>
+            <p>Email: contacto@kuu3d.com</p>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Kuu. Todos los derechos reservados.</p>

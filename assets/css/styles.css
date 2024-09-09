@@ -1,43 +1,246 @@
-/* Estilos básicos para Kuu */
-
+/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna y elegante */
     margin: 0;
     padding: 0;
-    color: #333;
+    box-sizing: border-box;
+    background-color: #f4f4f9; /* Fondo claro */
+    color: #333; /* Texto oscuro */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
-    background-color: #333;
+    background-color: #1f1f1f; /* Gris oscuro */
     color: #fff;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 nav ul {
     list-style: none;
+    margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 1rem;
+    margin: 0;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff5722; /* Naranja vibrante */
 }
 
 footer {
     background-color: #333;
     color: #fff;
-    text-align: center;
     padding: 1rem;
-    position: fixed;
+    text-align: center;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
 
-main {
-    padding: 2rem;
+/* Botones */
+button, .cta-button {
+    background-color: #ff5722; /* Naranja vibrante */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+button:hover, .cta-button:hover {
+    background-color: #e64a19; /* Naranja más oscuro */
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+/* Enlaces */
+a {
+    color: #2196f3; /* Azul brillante */
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+a:hover {
+    color: #1976d2; /* Azul más oscuro */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+}
+
+/* Estilos para la página de inicio */
+.hero {
+    background: url('../assets/img/hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 10rem 2rem; /* Mayor espacio para una mejor apariencia */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Superposición oscura para mejorar la legibilidad */
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Mejora la legibilidad sobre el fondo */
+}
+
+.hero p {
+    font-size: 1.75rem;
+    margin-top: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ff5722; /* Naranja vibrante */
+    color: #fff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #e64a19; /* Naranja más oscuro */
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+.features {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #fff; /* Fondo blanco para destacar las características */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+.features .feature {
+    display: inline-block;
+    width: 30%;
+    margin: 1rem;
+    vertical-align: top;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.features .feature:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.features img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem; /* Bordes redondeados para las imágenes */
+    transition: transform 0.3s;
+}
+
+.features img:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+.testimonials {
+    background-color: #f9f9f9; /* Fondo gris claro */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.testimonials blockquote {
+    border-left: 5px solid #ff5722; /* Naranja vibrante */
+    padding-left: 1.5rem;
+    margin: 1.5rem auto;
+    max-width: 700px;
+    font-style: italic;
+    color: #333;
+    position: relative;
+}
+
+.testimonials blockquote::before {
+    content: "\201C"; /* Comillas iniciales */
+    font-size: 4rem;
+    color: #ff5722; /* Naranja vibrante */
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+}
+
+.testimonials blockquote footer {
+    font-weight: bold;
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+.contact-cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #2196f3; /* Azul brillante */
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.contact-cta h2 {
+    font-size: 2.5rem;
+}
+
+.contact-cta p {
+    font-size: 1.5rem;
+}
+
+/* Estilos para el modo oscuro */
+body[data-theme='dark'] {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header, footer {
+    background-color: #1f1f1f;
+}
+
+nav ul li a {
+    color: #e0e0e0;
+}
+
+footer {
+    background-color: #333;
+}
+
+.hero {
+    background: url('../assets/img/hero-bg-dark.jpg') no-repeat center center/cover;
+}
+
+.testimonials blockquote {
+    border-left: 5px solid #ff5722;
+    color: #e0e0e0;
+}
+
+/* Ajustes adicionales para el modo oscuro */
+section {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
 }
