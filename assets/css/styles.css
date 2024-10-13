@@ -1,0 +1,521 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif; /* Tipografía moderna */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios de tema */
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #003366; /* Azul oscuro */
+    color: #fff;
+    padding: 1rem 2rem; /* Espaciado uniforme */
+    position: fixed; /* Fijo en la parte superior */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+header.hero {
+    height: 50vh; /* Ocupa toda la pantalla */
+    background: url('../img/video.gif') no-repeat center center/cover; /* GIF como fondo */
+    position: relative;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Superposición de color */
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo para mayor legibilidad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para la navegación */
+nav {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: center;
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenido */
+    width: 100%; /* Ocupa todo el ancho del encabezado */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos del menú a lo largo del contenedor */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem; /* Tamaño de fuente ligeramente mayor */
+    padding: 0.5rem 1rem; /* Espaciado interno para mejorar la apariencia */
+    transition: color 0.3s, transform 0.2s;
+    position: relative; /* Para el efecto de subrayado */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #d43f3a; /* Rojo brillante */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav ul li a:hover {
+    color: #d43f3a; /* Rojo brillante para el hover */
+    transform: scale(1.1); /* Efecto de escala al pasar el ratón */
+}
+
+/* Estilos para el contenido principal */
+main {
+    margin-top: 80px; /* Espacio para el encabezado fijo */
+}
+
+/* Estilos para la página de inicio */
+.hero {
+    background: url('../assets/img/hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 6rem 1rem; /* Mayor espacio para una mejor apariencia */
+    margin-top: 80px; /* Ajuste para el espacio debajo del encabezado fijo */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Mejora la legibilidad sobre el fondo */
+    animation: fadeIn 2s ease-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    animation: fadeIn 2s ease-out 0.5s;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #d43f3a; /* Rojo brillante */
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #b03228; /* Rojo más oscuro */
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+.hero-media {
+    max-width: 600px; /* Ajusta el tamaño máximo del contenedor del GIF */
+    margin: 2rem auto; /* Centra el GIF */
+}
+
+.hero-gif {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Establece un tamaño máximo para limitar el GIF */
+    object-fit: cover; /* Asegura que el GIF mantenga sus proporciones */
+    border-radius: 0.5rem; /* Agrega bordes redondeados */
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.features {
+    text-align: center;
+    padding: 4rem 1rem; /* Mayor espacio para una mejor presentación */
+}
+
+.features .feature {
+    display: inline-block;
+    width: 30%;
+    margin: 1rem;
+    vertical-align: top;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.features .feature:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.features img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    object-fit: cover; /* Mantiene la proporción de las imágenes */
+    transition: transform 0.3s;
+}
+
+.features img:hover {
+    transform: scale(1.1); /* Efecto de escala en imágenes al pasar el ratón */
+}
+
+.success-stories {
+    padding: 40px 20px; /* Espaciado alrededor de la sección */
+    background-color:#333; /* Color de fondo claro */
+    text-align: center; /* Alinear el texto al centro */
+}
+
+.success-stories h2 {
+    font-size: 2.5rem; /* Tamaño de fuente para el encabezado */
+    margin-bottom: 20px; /* Espaciado inferior */
+    color: #b03228; /* Color del texto */
+}
+
+.story {
+    display: inline-block; /* Permite que las historias se alineen en fila */
+    width: 400px; /* Ancho fijo para las historias */
+    margin: 20px; /* Margen alrededor de cada historia */
+   
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Ocultar el desbordamiento del contenido */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones para el efecto hover */
+}
+
+.story:hover {
+    transform: scale(1.05); /* Escala ligeramente la historia al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el mouse */
+}
+
+.story img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+.story h3 {
+    font-size: 1.5rem; /* Tamaño de fuente para el título de la historia */
+    margin: 10px 0; /* Margen arriba y abajo */
+    color: #b03228; /* Color del título */
+}
+
+.story p {
+    font-size: 1rem; /* Tamaño de fuente para la descripción */
+    color: #fff; /* Color del texto de la descripción */
+    padding: 0 10px; /* Espaciado lateral */
+}
+
+.faq {
+    width: 100%; /* Ocupa el ancho completo de la pantalla */
+    padding: 20px; /* Espaciado interno */
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Color del texto blanco */
+}
+
+.faq h2 {
+    text-align: center; /* Centra el título */
+    font-size: 2rem; /* Tamaño de fuente del título */
+    color: #b03228; /* Color rojo para el título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+.faq-item {
+    margin-bottom: 15px; /* Espacio entre cada item */
+    padding: 15px; /* Espaciado interno del item */
+    border: none; /* Sin borde */
+    background-color: transparent; /* Fondo transparente */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+.faq-item:hover {
+    background-color: rgba(255, 0, 0, 0.1); /* Color de fondo al pasar el mouse (rojo claro) */
+}
+
+.faq-item h3 {
+    font-size: 1.5rem; /* Tamaño de fuente para las preguntas */
+    color: #b03228; /* Color rojo para las preguntas */
+    margin: 0; /* Elimina margen */
+}
+
+.faq-item p {
+    font-size: 1rem; /* Tamaño de fuente para las respuestas */
+    color: #fff; /* Color del texto de las respuestas (gris claro) */
+    margin-top: 5px; /* Espacio superior para las respuestas */
+}
+
+
+
+
+
+.testimonials {
+    background-color: #f0f0f0; /* Gris claro */
+    padding: 4rem 1rem; /* Mayor espacio para una mejor presentación */
+    text-align: center;
+}
+
+.testimonials blockquote {
+    border-left: 5px solid #d43f3a; /* Rojo brillante */
+    padding-left: 1rem;
+    margin: 0 auto;
+    max-width: 700px; /* Mayor ancho para mejorar la legibilidad */
+    font-style: italic;
+    color: #333;
+    position: relative;
+}
+
+.testimonials blockquote::before {
+    content: '“';
+    font-size: 3rem;
+    position: absolute;
+    left: -0.5rem;
+    top: -1.5rem;
+    color: #d43f3a; /* Rojo brillante */
+    opacity: 0.2;
+}
+
+/* Efecto de desplazamiento suave en la sección de contacto */
+.contact-cta {
+    text-align: center;
+    padding: 4rem 1rem; /* Mayor espacio para una mejor presentación */
+    background-color: #003366; /* Azul oscuro */
+    color: #fff;
+    border-radius: 0.5rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-cta h2 {
+    font-size: 2rem;
+    animation: slideIn 1s ease-out;
+}
+
+.contact-cta p {
+    font-size: 1.25rem;
+    animation: slideIn 1s ease-out 0.5s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estilos para la página de servicios */
+section {
+    margin-bottom: 2rem;
+}
+
+section img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    object-fit: cover; /* Mantiene la proporción de las imágenes */
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #d43f3a; /* Rojo brillante */
+}
+
+/* Estilos para la página de sobre nosotros */
+.about-section {
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-direction: column;
+}
+
+.about-content img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.timeline {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.timeline-event {
+    margin-bottom: 1rem;
+}
+
+.team-profiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.profile {
+    text-align: center;
+    max-width: 200px;
+}
+
+.profile img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.mission-visuals {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.mission-visuals img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-left: 5px solid #d43f3a; /* Rojo brillante */
+    font-style: italic;
+}
+
+/* Estilos para la página de contacto */
+form {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 700px; /* Mayor ancho para mejor usabilidad */
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+textarea {
+    resize: vertical; /* Permite ajustar el tamaño vertical del textarea */
+}
+
+button {
+    background-color: #d43f3a; /* Rojo brillante */
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #b03228; /* Rojo más oscuro */
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+/* Estilos para la página de blog */
+.blog-article {
+    margin-bottom: 3rem; /* Mayor espacio entre artículos */
+}
+
+.blog-article h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #d43f3a; /* Rojo brillante */
+}
+
+.blog-article p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.blog-article a {
+    color: #007bff; /* Azul */
+}
+
+/* Estilos para el modo oscuro */
+body[data-theme='dark'] {
+    background-color: #000;
+    color: #fff;
+}
+
+header, footer {
+    background-color: #1f1f1f; /* Color más oscuro para el modo oscuro */
+}
+
+nav ul li a {
+    color: #e0e0e0; /* Color claro para el modo oscuro */
+}
+
+footer {
+    background-color: #111;
+}
+
+.hero {
+    background: url('../assets/img/hero-bg-dark.jpg') no-repeat center center/cover;
+}
+
+.testimonials blockquote {
+    border-left: 5px solid #d43f3a; /* Rojo brillante */
+    color: #ccc;
+}
+
+/* Ajustes adicionales para el modo oscuro */
+section {
+    background-color: #222;
+    color: #ccc;
+}

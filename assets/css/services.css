@@ -1,0 +1,358 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif; /* Tipografía moderna */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios de tema */
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #003366; /* Azul oscuro */
+    color: #fff;
+    padding: 1rem 2rem; /* Espaciado uniforme */
+    position: fixed; /* Fijo en la parte superior */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+header.hero {
+    height: 50vh; /* Ocupa toda la pantalla */
+    background: url('../img/video.gif') no-repeat center center/cover; /* GIF como fondo */
+    position: relative;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Superposición de color */
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo para mayor legibilidad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para la navegación */
+nav {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: center;
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenido */
+    width: 100%; /* Ocupa todo el ancho del encabezado */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos del menú a lo largo del contenedor */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem; /* Tamaño de fuente ligeramente mayor */
+    padding: 0.5rem 1rem; /* Espaciado interno para mejorar la apariencia */
+    transition: color 0.3s, transform 0.2s;
+    position: relative; /* Para el efecto de subrayado */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #d43f3a; /* Rojo brillante */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav ul li a:hover {
+    color: #d43f3a; /* Rojo brillante para el hover */
+    transform: scale(1.1); /* Efecto de escala al pasar el ratón */
+}
+
+/* Estilos para el contenido principal */
+main {
+    margin-top: 80px; /* Espacio para el encabezado fijo */
+}
+
+/* Estilos para la página de inicio */
+.hero {
+    background: url('../assets/img/hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 6rem 1rem; /* Mayor espacio para una mejor apariencia */
+    margin-top: 80px; /* Ajuste para el espacio debajo del encabezado fijo */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Mejora la legibilidad sobre el fondo */
+    animation: fadeIn 2s ease-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    animation: fadeIn 2s ease-out 0.5s;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #d43f3a; /* Rojo brillante */
+    color: #fff; /* Blanco para texto */
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #b03228; /* Rojo más oscuro */
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+.hero-media {
+    max-width: 600px; /* Ajusta el tamaño máximo del contenedor del GIF */
+    margin: 2rem auto; /* Centra el GIF */
+}
+
+.hero-gif {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Establece un tamaño máximo para limitar el GIF */
+    object-fit: cover; /* Asegura que el GIF mantenga sus proporciones */
+    border-radius: 0.5rem; /* Agrega bordes redondeados */
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.features {
+    text-align: center;
+    padding: 4rem 1rem; /* Mayor espacio para una mejor presentación */
+}
+
+.features .feature {
+    display: inline-block;
+    width: 30%;
+    margin: 1rem;
+    vertical-align: top;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.features .feature:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.features img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    object-fit: cover; /* Mantiene la proporción de las imágenes */
+    transition: transform 0.3s;
+}
+
+.features img:hover {
+    transform: scale(1.1); /* Efecto de escala en imágenes al pasar el ratón */
+}
+
+.success-stories {
+    padding: 40px 20px; /* Espaciado alrededor de la sección */
+    background-color: #fff; /* Blanco */
+    text-align: center; /* Alinear el texto al centro */
+}
+
+.success-stories h2 {
+    font-size: 2.5rem; /* Tamaño de fuente para el encabezado */
+    margin-bottom: 20px; /* Espaciado inferior */
+    color: #003366; /* Azul oscuro */
+}
+
+.story {
+    display: inline-block; /* Permite que las historias se alineen en fila */
+    width: 400px; /* Ancho fijo para las historias */
+    margin: 20px; /* Margen alrededor de cada historia */
+   
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Ocultar el desbordamiento del contenido */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones para el efecto hover */
+}
+
+.story:hover {
+    transform: scale(1.05); /* Escala ligeramente la historia al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el mouse */
+}
+
+.story img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+.story h3 {
+    font-size: 1.5rem; /* Tamaño de fuente para el título de la historia */
+    margin: 10px 0; /* Margen arriba y abajo */
+    color: #003366; /* Azul oscuro */
+}
+
+.story p {
+    font-size: 1rem; /* Tamaño de fuente para la descripción */
+    color: #333; /* Color del texto de la descripción */
+    padding: 0 10px; /* Espaciado lateral */
+}
+
+.faq {
+    width: 100%; /* Ocupa el ancho completo de la pantalla */
+    background-color: #f9f9f9; /* Color de fondo claro */
+    padding: 4rem 1rem; /* Espaciado alrededor de la sección */
+    text-align: center; /* Centrar el texto */
+}
+
+.faq h2 {
+    font-size: 2.5rem; /* Tamaño de fuente para el encabezado */
+    margin-bottom: 20px; /* Margen inferior */
+    color: #003366; /* Azul oscuro */
+}
+
+.faq-item {
+    margin: 1rem 0; /* Margen superior e inferior */
+    border: 1px solid #d43f3a; /* Borde rojo */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Ocultar el desbordamiento */
+}
+
+.faq-item-header {
+    background-color: #d43f3a; /* Rojo brillante para el encabezado */
+    color: #fff; /* Texto blanco */
+    padding: 1rem; /* Espaciado interno */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: background-color 0.3s; /* Transición para el fondo */
+}
+
+.faq-item-header:hover {
+    background-color: #b03228; /* Rojo más oscuro al pasar el mouse */
+}
+
+.faq-item-body {
+    padding: 1rem; /* Espaciado interno */
+    display: none; /* Ocultar por defecto */
+    background-color: #fff; /* Fondo blanco para el cuerpo */
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #003366; /* Azul oscuro */
+    color: #fff; /* Texto blanco */
+    text-align: center; /* Centrar el texto */
+    padding: 1rem 0; /* Espaciado arriba y abajo */
+    position: relative; /* Relativo para el z-index */
+    bottom: 0; /* Asegura que el pie de página esté en la parte inferior */
+    width: 100%; /* Ancho completo */
+}
+
+footer p {
+    margin: 0; /* Sin margen */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+}
+
+/* Estilos para la animación de scroll */
+.scroll-top {
+    position: fixed; /* Fijo en la pantalla */
+    bottom: 30px; /* Espacio desde el fondo */
+    right: 30px; /* Espacio desde la derecha */
+    background-color: #d43f3a; /* Rojo brillante */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Forma circular */
+    width: 50px; /* Ancho fijo */
+    height: 50px; /* Alto fijo */
+    display: flex; /* Flexbox para centrar contenido */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s; /* Transición de color de fondo */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.scroll-top:hover {
+    background-color: #b03228; /* Rojo más oscuro al pasar el mouse */
+}
+
+/* Medios (Responsividad) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+    }
+
+    .features .feature {
+        width: 100%; /* Cada característica ocupa el 100% en pantallas pequeñas */
+        margin: 1rem 0; /* Margen vertical */
+    }
+
+    .success-stories {
+        padding: 20px; /* Menor espacio en pantallas pequeñas */
+    }
+
+    .story {
+        width: 100%; /* Cada historia ocupa el 100% en pantallas pequeñas */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Tamaño de fuente más pequeño */
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* Tamaño de fuente más pequeño */
+    }
+
+    .faq-item {
+        margin: 1rem 0; /* Espaciado vertical */
+    }
+}
+
