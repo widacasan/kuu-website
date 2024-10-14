@@ -130,6 +130,12 @@ main {
     animation: fadeIn 2s ease-out 0.5s;
 }
 
+.button-container {
+    display: flex; /* Usar flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    margin-top: 1rem; /* Espacio arriba */
+}
+
 .cta-button {
     display: inline-block;
     background-color: #d43f3a; /* Rojo brillante */
@@ -138,7 +144,6 @@ main {
     text-decoration: none;
     border-radius: 0.5rem;
     font-weight: bold;
-    margin-top: 1rem;
     transition: background-color 0.3s, transform 0.2s;
 }
 
