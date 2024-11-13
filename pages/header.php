@@ -15,6 +15,7 @@
                 <li><a href="services.php">Servicios</a></li>
                 <li><a href="about.php">Sobre Nosotros</a></li>
                 <li><a href="contact.php">Contacto</a></li>
+                <li><a href="pedido.php">Haz tu pedido</a></li>
             </ul>
         </nav>
     </header>
