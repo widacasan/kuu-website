@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Pedido</title>
 </head>
-<br>
-    <br></br>
+<body>
+    <br><br>
     <h2>Realizar Pedido</h2>
     <form action="guardar_pedido.php" method="POST">
         <label for="nombre">Nombre:</label>
@@ -30,4 +30,5 @@
     </form>
 </body>
 </html>
+
 <?php include('footer.php'); ?>
